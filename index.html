@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>You're the Only Ten I See</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+<div id="page-container">
+	<div id="logo-mover">
+		<div id="logo-box">
+			<div class="red-box">
+				<div class="text">TN</div>
+			</div>
+			<div class="blue-box"></div>
+		</div>
+	</div>
+
+	<audio controls autoplay loop>
+		<source src="assets/rockytop.mp3" type="audio/mpeg">
+	</audio>
+</div>
+
+<script>
+	var counter = 1
+	var rotate = 90	
+	var height = document.getElementById("page-container").clientHeight
+	var width = document.getElementById("page-container").clientWidth
+
+	var heightOffset = (document.getElementById("logo-box").clientHeight)/2
+	var widthOffset = (document.getElementById("logo-box").clientWidth)/2	
+	
+	setInterval(function() {
+		document.getElementById("logo-box").style.transition = "all .5s linear"
+
+		var spin = setInterval(function(){
+			document.getElementById("logo-box").style.transform = "rotate("+rotate+"deg)";
+			rotate += 90
+			if (rotate >450) {
+				clearInterval(spin)
+				rotate = 90
+				document.getElementById("logo-box").style.transition = ""
+				document.getElementById("logo-box").style.transform = "rotate(0deg)";
+
+			}
+		}, 500)
+	}, 10000)
+
+	setInterval(function() {
+
+		if (counter===4){
+			counter = 1
+		} else {
+			counter += 1
+		}
+
+		if (counter===1) {
+			document.getElementById("logo-mover").style.left = (width-widthOffset)+"px"
+			document.getElementById("logo-mover").style.top = (Math.floor(Math.random()*(height- heightOffset ))+ heightOffset )+"px"
+		}
+
+		if (counter === 2){
+			document.getElementById("logo-mover").style.top = (height- heightOffset )+"px"
+			document.getElementById("logo-mover").style.left = (Math.floor(Math.random()*(width- widthOffset ))+ widthOffset )+"px"
+		}
+
+		if (counter === 3) {
+			document.getElementById("logo-mover").style.left = widthOffset + "px"
+			document.getElementById("logo-mover").style.top = (Math.floor(Math.random()*(height- heightOffset ))+ heightOffset )+"px"
+		}
+
+		if (counter === 4){
+			document.getElementById("logo-mover").style.top = heightOffset + "px"
+			document.getElementById("logo-mover").style.left = (Math.floor(Math.random()*(width- widthOffset ))+ widthOffset )+"px"
+		}
+		
+		setTimeout(function() {
+
+		}, 3000)
+	}, 4000)
+
+	document.getElementById("logo-mover").style.left = (width-widthOffset)+"px"
+	document.getElementById("logo-mover").style.top = (Math.floor(Math.random()*(height- heightOffset ))+ heightOffset )+"px"
+</script>
+
+</body>
+</html>

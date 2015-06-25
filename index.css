@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+audio {
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	transform: TranslateX(-50%);
+}
+
+#page-container {
+	width: 100%;
+	height: 100vh;
+	background: radial-gradient(RGB(247, 127, 0), RGB(194, 99, 0));
+}
+
+#logo-mover {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: Translate(-50%, -50%);
+	transition: all 4s linear;
+}
+
+#logo-box {
+	margin: 0 auto;
+	background-color: white;
+	width: 216px;
+	padding: 8px;
+}
+
+.red-box {
+	background-color: RGB(239, 48, 38);
+	width: 200px;
+	height: 200px;
+	color: white;
+	font-size: 100px;
+	text-align: center;
+}
+
+.text {
+	position: relative;
+	top: 50%;
+	transform: TranslateY(-50%);
+}
+
+.blue-box {
+	background-color: RGB(6, 77, 133);
+	width: 200px;
+	height: 20px;
+	margin-top: 8px;	
+}
